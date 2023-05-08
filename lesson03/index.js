@@ -15,7 +15,7 @@ const attributes = [
   }
 ];
 
-attributes.map((attribute) => {
+attributes.forEach((attribute) => {
   const li = document.createElement("li");
   const a = document.createElement("a");
   const img = document.createElement("img");
