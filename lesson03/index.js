@@ -1,4 +1,4 @@
-const jsTarget = document.getElementById("js-target");
+const ul = document.getElementById("js-target");
 const fragment = document.createDocumentFragment();
 
 const attributes = [
@@ -26,4 +26,4 @@ attributes.forEach((attribute) => {
   fragment.appendChild(li).appendChild(a).insertAdjacentElement("afterbegin",img);
 });
 
-jsTarget.appendChild(fragment);
+ul.appendChild(fragment);
