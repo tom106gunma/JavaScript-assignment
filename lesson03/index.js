@@ -1,6 +1,3 @@
-const ul = document.getElementById("js-target");
-const fragment = document.createDocumentFragment();
-
 const attributes = [
   {
     href: "a1.html",
@@ -14,6 +11,8 @@ const attributes = [
   }
 ];
 
+const fragment = document.createDocumentFragment();
+
 attributes.forEach((attribute) => {
   const li = document.createElement("li");
   const a = document.createElement("a");
@@ -26,4 +25,5 @@ attributes.forEach((attribute) => {
   fragment.appendChild(li).appendChild(a).insertAdjacentElement("afterbegin",img);
 });
 
+const ul = document.getElementById("js-target");
 ul.appendChild(fragment);
