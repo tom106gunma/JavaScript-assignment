@@ -33,11 +33,12 @@ function createList(attributes) {
 }
 
 function showLoading() {
-  ul.innerHTML = '<img src="loading-circle.gif" alt="loading">';
+  ul.innerHTML = '<img id="loading-img" src="loading-circle.gif" alt="loading">';
 }
 
 function hideLoading() {
-  ul.innerHTML = '';
+  const loadingImg = document.getElementById('loading-img');
+  loadingImg.remove();
 }
 
 showLoading();
