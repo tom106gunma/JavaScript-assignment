@@ -33,7 +33,7 @@ function createList(attributes) {
 }
 
 function showLoading() {
-  ul.innerHTML = '<img src="loading-circle.gif" alt="loading"></img>';
+  ul.innerHTML = '<img src="loading-circle.gif" alt="loading">';
 }
 
 function hideLoading() {
