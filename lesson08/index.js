@@ -51,9 +51,12 @@ new Promise((resolve, reject) => {
   setTimeout(() => {
     reject(errorMessage)
   }, 3000);
-}).then(value => {
-  hideLoading();
-  createList(value);
-}).catch((error) => {
-  console.error(error);
-});
+}).then(
+  (value) => {
+    hideLoading();
+    createList(value);
+  },
+  (error) => {
+    console.error(error);
+  }
+);
