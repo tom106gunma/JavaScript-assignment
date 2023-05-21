@@ -8,7 +8,7 @@ function showLoading() {
   ul.appendChild(img);
 }
 
-function hideLoading() {
+function removeLoading() {
   const loadingImg = document.getElementById('loading-img');
   loadingImg.remove();
 }
@@ -55,7 +55,7 @@ function createList(attributes) {
 
 async function showList() {
   const attributes = await getAttributes();
-  hideLoading();
+  removeLoading();
   createList(attributes);
 }
 
