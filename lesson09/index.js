@@ -14,7 +14,6 @@ function removeLoading() {
 }
 
 function getAttributes() {
-  showLoading();
   return new Promise((resolve) => {
     setTimeout(() => {
       const attributes = [
@@ -54,6 +53,7 @@ function createList(attributes) {
 }
 
 async function showList() {
+  showLoading();
   const attributes = await getAttributes();
   removeLoading();
   createList(attributes);
