@@ -39,8 +39,8 @@ async function fetchData() {
   addLoading();
   try{
     return await getAttributes();
-  } catch(e) {
-    console.error(e)
+  } catch(error) {
+    console.error(error)
   } finally {
     removeLoading();
   }
