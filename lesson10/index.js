@@ -9,8 +9,7 @@ function addLoading() {
 }
 
 function removeLoading() {
-  const loadingImg = document.getElementById('loading-img');
-  loadingImg.remove();
+  document.getElementById('loading-img').remove();
 }
 
 function getAttributes() {
@@ -38,7 +37,8 @@ function getAttributes() {
 async function fetchData() {
   addLoading();
   try{
-    return await getAttributes();
+    const data = await getAttributes();
+    return data;
   } catch(error) {
     console.error(error)
   } finally {
