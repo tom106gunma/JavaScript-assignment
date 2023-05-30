@@ -50,7 +50,7 @@ async function addList() {
     a.href = `/${attribute.to}`;
     a.textContent = attribute.text;
     img.src = attribute.img;
-    img.alt = attribute.a;
+    img.alt = attribute.alt;
     fragment.appendChild(li).appendChild(a).insertAdjacentElement('afterbegin', img);
   };
 
