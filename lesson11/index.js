@@ -19,28 +19,37 @@ async function fetchData() {
   try{
     const response = await fetch(url);
     if (!response.ok) {
-      const errorText = `${response.status}:Failed to acquire data.`;
-      errorHandling(errorText);
+      const errorMessage = `${response.status}:Failed to acquire data.`;
+      addDisplayMessage(errorMessage);
+      console.error(errorMessage);
     }
+
     const data = await response.json();
+    if (data.length === 0 ) {
+      const message = 'Empty data.';
+      addDisplayMessage(message);
+    }
     return data;
+
   } catch(error) {
-    errorHandling(error);
+    addDisplayMessage(error);
+    console.error(error);
+    return {};
+
   } finally {
     removeLoading();
   }
 }
 
-function errorHandling(error) {
-  const p = document.createElement("p");
-  p.textContent = error;
-  ul.appendChild(p);
-  console.error(error);
+function addDisplayMessage(message) {
+  const P = document.createElement("p");
+  P.textContent = message;
+  ul.appendChild(P);
 }
 
 async function addList() {
-  const attributes = await fetchData() || {};
-  if(Object.keys(attributes).length == 0) return;
+  const attributes = await fetchData();
+  if(Object.keys(attributes).length === 0) return;
 
   const fragment = document.createDocumentFragment();
 
