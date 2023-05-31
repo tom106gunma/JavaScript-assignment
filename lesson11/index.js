@@ -12,10 +12,11 @@ function removeLoading() {
   document.getElementById('loading-img').remove();
 }
 
+const url = 'https://my-json-server.typicode.com/tom106gunma/test-json-data/data';
+
 async function fetchData() {
   addLoading();
   try{
-    const url = 'https://my-json-server.typicode.com/tom106gunma/test-json-data/data';
     const response = await fetch(url);
     if (!response.ok) {
       const errorText = `${response.status}:Failed to acquire data.`;
