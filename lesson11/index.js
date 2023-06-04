@@ -18,17 +18,16 @@ async function fetchData() {
   addLoading();
   try{
     const response = await fetch(url);
+    if (!response.ok) {
+      const errorMessage = `${response.status}:Error occurred.`;
+      addDisplayMessage(errorMessage);
+      console.error(errorMessage);
+    }
 
     const data = await response.json();
     if (Object.keys(data).length === 0) {
-      if (!response.ok) {
-        const errorMessage = `${response.status}:Error occurred.`;
-        addDisplayMessage(errorMessage);
-        console.error(errorMessage);
-      } else {
-        const message = 'No data available.';
-        addDisplayMessage(message);
-      }
+      const message = 'No data available.';
+      addDisplayMessage(message);
     } else {
       return data;
     }
