@@ -50,6 +50,12 @@ function addDisplayMessage(message) {
 
 async function addList() {
   const attributes = await fetchData();
+    if(attributes){
+      createListItem(attributes)
+    }
+  }
+
+function createListItem(attributes) {
   const fragment = document.createDocumentFragment();
 
   for(const attribute of attributes) {
@@ -64,7 +70,6 @@ async function addList() {
   };
 
   ul.appendChild(fragment);
-
 }
 
 addList();
