@@ -14,10 +14,10 @@ function removeLoading() {
 
 const url = 'https://my-json-server.typicode.com/tom106gunma/test-json-data/data';
 
-async function fetchData() {
+async function fetchData(apiUrl) {
   addLoading();
   try{
-    const response = await fetch(url);
+    const response = await fetch(apiUrl);
     if (!response.ok) {
       const errorMessage = `${response.status}:Error occurred.`;
       addDisplayMessage(errorMessage);
@@ -47,8 +47,8 @@ function addDisplayMessage(message) {
   ul.appendChild(P);
 }
 
-async function addList() {
-  const attributes = await fetchData();
+async function addList(apiUrl) {
+  const attributes = await fetchData(apiUrl);
     if(attributes){
       createListItem(attributes)
     }
@@ -71,4 +71,4 @@ function createListItem(attributes) {
   ul.appendChild(fragment);
 }
 
-addList();
+addList(url);
