@@ -47,8 +47,8 @@ function addDisplayMessage(message) {
   ul.appendChild(P);
 }
 
-async function addList(apiUrl) {
-  const attributes = await fetchData(apiUrl);
+async function addList() {
+  const attributes = await fetchData(url);
     if(attributes){
       createListItem(attributes)
     }
@@ -71,4 +71,4 @@ function createListItem(attributes) {
   ul.appendChild(fragment);
 }
 
-addList(url);
+addList();
