@@ -30,7 +30,6 @@ async function fetchData(apiUrl) {
       const emptyMessage = 'No data available.';
       P.textContent = emptyMessage;
     } else {
-      P.textContent = '';
       return data;
     }
 
