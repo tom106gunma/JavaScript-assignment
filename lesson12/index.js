@@ -26,7 +26,7 @@ async function fetchData(apiUrl) {
     }
 
     const data = await response.json();
-    if (Object.keys(data).length === 0) {
+    if (data.length === 0) {
       const emptyMessage = 'No data available.';
       P.textContent = emptyMessage;
     } else {
