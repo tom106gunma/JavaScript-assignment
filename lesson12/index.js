@@ -1,5 +1,5 @@
-const ul = document.getElementById('js-target');
-const P = document.getElementById('js-message');
+const listContainer = document.getElementById('js-target');
+const messageContainer = document.getElementById('js-message');
 const button = document.getElementById('js-button');
 const url = 'https://my-json-server.typicode.com/tom106gunma/test-json-data/data';
 
@@ -8,7 +8,7 @@ function addLoading() {
   img.id = 'loading-img';
   img.src = 'img/loading-circle.gif';
   img.alt = 'loading';
-  ul.appendChild(img);
+  listContainer.appendChild(img);
 }
 
 function removeLoading() {
@@ -21,20 +21,20 @@ async function fetchData(apiUrl) {
     const response = await fetch(apiUrl);
     if (!response.ok) {
       const errorMessage = `${response.status}:Error occurred.`;
-      P.textContent = errorMessage;
+      messageContainer.textContent = errorMessage;
       console.error(errorMessage);
     }
 
     const data = await response.json();
     if (data.length === 0) {
       const emptyMessage = 'No data available.';
-      P.textContent = emptyMessage;
+      messageContainer.textContent = emptyMessage;
     } else {
       return data;
     }
 
   } catch(error) {
-    P.textContent = error;
+    messageContainer.textContent = error;
     console.error(error);
 
   } finally {
@@ -56,7 +56,7 @@ function createListItem(attributes) {
     fragment.appendChild(li).appendChild(a).insertAdjacentElement('afterbegin', img);
   };
 
-  ul.appendChild(fragment);
+  listContainer.appendChild(fragment);
 }
 
 async function addList() {
